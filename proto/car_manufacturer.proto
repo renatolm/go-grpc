@@ -1,0 +1,23 @@
+syntax = "proto3";
+package pb;
+option go_package = "internal/pb";
+
+message Manufacturer {
+    string id = 1;
+	string name = 2;
+	string origincountry = 3;
+}
+
+message CreateManufacturerRequest {
+    string name = 1;
+    string origincountry = 2;
+}
+
+message ManufacturerResponse {
+    Manufacturer manufacturer = 1;
+}
+
+service ManufacturerService {
+    // rpc CreateManufacturer(CreateManufacturerRequest) returns (ManufacturerResponse) {}
+    rpc CreateManufacturer(CreateManufacturerRequest) returns (Manufacturer) {}
+}
